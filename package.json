@@ -1,0 +1,20 @@
+{
+  "name": "stresstrest",
+  "version": "1.0.0",
+  "description": "Customizable stress testing tool in TypeScript with built-in metrics, CI integration, and CLI support.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
