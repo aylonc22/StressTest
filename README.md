@@ -41,7 +41,7 @@ console.log(result);
 | Option              | Type                      | Description                                      |
 |---------------------|---------------------------|--------------------------------------------------|
 | `url`               | `string`                  | Target endpoint URL                              |
-| `method`            | `'GET' | 'POST' | 'PUT' | 'DELETE'` | HTTP method (default: `'GET'`)         |
+| `method`            | `GET' | 'POST' | 'PUT' | 'DELETE'` | HTTP method (default: `'GET'`)         |
 | `headers`           | `Record<string, string>`  | Optional headers                                 |
 | `body`              | `any`                     | Optional request body for POST/PUT               |
 | `concurrency`       | `number`                  | Number of concurrent workers                     |
