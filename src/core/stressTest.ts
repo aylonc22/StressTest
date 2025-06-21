@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { StressTestOptions, StressTestResult } from './types';
+import { StressTestOptions, MetricsSummary } from '../types';
+import { BasicMetrics } from './metrics';
 
-export async function stressTest(options: StressTestOptions): Promise<StressTestResult> {
+export async function stressTest(options: StressTestOptions): Promise<MetricsSummary> {
   const {
     url,
     method = 'GET',
@@ -12,16 +13,13 @@ export async function stressTest(options: StressTestOptions): Promise<StressTest
     requestsPerSecond = 1000,
   } = options;
 
-  let successCount = 0;
-  let failureCount = 0;
-  let totalTime = 0;
-  let totalRequests = 0;
-
   const endTime = Date.now() + durationMs;
+  const metrics = new BasicMetrics();
 
   const sendRequest = async () => {
     while (Date.now() < endTime) {
       const start = Date.now();
+      let success = false;
       try {
         await axios({
           method,
@@ -30,13 +28,11 @@ export async function stressTest(options: StressTestOptions): Promise<StressTest
           headers,
           timeout: 10_000,
         });
-        successCount++;
-      } catch {
-        failureCount++;
-      }
-      const end = Date.now();
-      totalTime += end - start;
-      totalRequests++;
+        success = true;
+      } catch {}
+
+      const duration = Date.now() - start;
+      metrics.record(duration, success);
 
       const delay = 1000 / requestsPerSecond;
       await new Promise(res => setTimeout(res, delay));
@@ -46,10 +42,5 @@ export async function stressTest(options: StressTestOptions): Promise<StressTest
   const threads = Array.from({ length: concurrency }, () => sendRequest());
   await Promise.all(threads);
 
-  return {
-    totalRequests,
-    successCount,
-    failureCount,
-    averageResponseTimeMs: totalRequests > 0 ? totalTime / totalRequests : 0,
-  };
+  return metrics.getSummary();
 }
