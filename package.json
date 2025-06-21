@@ -1,16 +1,36 @@
 {
-  "name": "stresstest",
+  "name": "ts-stress-tester",               
   "version": "1.0.0",
   "description": "Customizable stress testing tool in TypeScript with built-in metrics, CI integration, and CLI support.",
-  "main": "index.js",
+  "main": "dist/index.js",                  
+  "types": "dist/index.d.ts",               
+  "files": ["dist"],                         
   "scripts": {
     "build": "tsc",
     "dev": "ts-node src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "npm run build"              
   },
-  "keywords": [],
+  "keywords": [
+    "stress-test",
+    "performance",
+    "load-testing",
+    "typescript",
+    "benchmark",
+    "http",
+    "testing",
+    "ci"
+  ],
   "author": "Aylon Cohen",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aylonc22/StressTest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aylonc22/StressTest/issues"
+  },
+  "homepage": "https://github.com/aylonc22/StressTest#readme",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.0.2",

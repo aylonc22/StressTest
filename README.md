@@ -24,7 +24,7 @@ npm install 5StressTest
 
 ### 2. Use in Code
 ```
-import { stressTest } from 'ts-stress-tester';
+import { stressTest } from 'stressTester';
 
 const result = await stressTest({
   url: 'http://localhost:3000',
