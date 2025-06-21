@@ -1,5 +1,5 @@
 {
-  "name": "stresstrest",
+  "name": "stresstest",
   "version": "1.0.0",
   "description": "Customizable stress testing tool in TypeScript with built-in metrics, CI integration, and CLI support.",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aylon Cohen",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^30.0.0",
