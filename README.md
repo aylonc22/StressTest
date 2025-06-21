@@ -37,17 +37,21 @@ console.log(result);
 ```
 
 ### 3. Options
-Option	Type	Description
-url	string	Target endpoint URL
-method	`'GET'	'POST'
-headers	Record<string, string>	Optional headers
-body	any	Optional request body for POST/PUT
-concurrency	number	Number of concurrent workers
-durationMs	number	Total test duration in milliseconds
-requestsPerSecond	number	Optional throttle rate (per worker)
+
+| Option              | Type                      | Description                                      |
+|---------------------|---------------------------|--------------------------------------------------|
+| `url`               | `string`                  | Target endpoint URL                              |
+| `method`            | `'GET' | 'POST' | 'PUT' | 'DELETE'` | HTTP method (default: `'GET'`)         |
+| `headers`           | `Record<string, string>`  | Optional headers                                 |
+| `body`              | `any`                     | Optional request body for POST/PUT               |
+| `concurrency`       | `number`                  | Number of concurrent workers                     |
+| `durationMs`        | `number`                  | Total test duration in milliseconds              |
+| `requestsPerSecond` | `number`                  | Optional throttle rate (per worker)              |
+
 
 ### 4. Sample Output
-```{
+```
+{
   total: 500,
   success: 498,
   failure: 2,
@@ -57,4 +61,5 @@ requestsPerSecond	number	Optional throttle rate (per worker)
   p50: 100,
   p95: 180,
   p99: 310
-}```
+}
+```
