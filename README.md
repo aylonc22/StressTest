@@ -1,6 +1,6 @@
 # StressTest
 
-⚡️ Customizable, lightweight stress testing tool built in TypeScript. Ideal for performance testing of any HTTP server, with built-in metrics and CI integration support.
+⚡️ Customizable, lightweight stress testing tool built in TypeScript. Ideal for performance testing of any HTTP server.
 
 ---
 
